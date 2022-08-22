@@ -2,9 +2,10 @@ import 'dart:developer';
 
 ///
 /// List, Set, Map 비교
-void main()  {
-  testSet(); // SET   Test End:: 0:00:00.008335
+void main() {
+  testSet(); //  SET  test End:: 0:00:00.008335
   testList(); // LIST Test End:: 0:00:00.003899
+  testMap(); //  Map  Test End:: 0:00:00.001535
 }
 
 ///
@@ -21,13 +22,10 @@ void testSet() {
   set1.add(1); // 1이 더이상 중복이 아니라 삽입 가능.
 
   for (var e in set1) {
-    print("SET ${e}");
+    // print("SET ${e}");
   }
 
-  set1.removeAll;
-
   log("Set Test End:: ${stopwatch.elapsed}");
-  stopwatch.reset();
 }
 
 ///
@@ -44,11 +42,32 @@ void testList() {
   list1.add(1);
 
   for (var e in list1) {
-    print("LIST ${e}");
+    // print("LIST ${e}");
   }
 
-  list1 = [];
-
   log("LIST Test End:: ${stopwatch.elapsed}");
-  stopwatch.reset();
+
+}
+
+///
+/// Map
+void testMap() {
+  var stopwatch = Stopwatch()..start();
+  log('MAP Test Start:: ');
+
+  Map map1 = {};
+  map1.addAll({1: 1, 2: 2, 3: 3, 4: 4, 5: 5});
+
+  map1[1] = 1;
+  map1.remove(1);
+  map1[1] = 1;
+
+
+ 
+ map1.forEach((key, value) {
+  // print(value);
+ },);
+
+  log("MAP Test End:: ${stopwatch.elapsed}");
+
 }
